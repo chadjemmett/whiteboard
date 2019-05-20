@@ -31,12 +31,7 @@ class Tree {
   }
 
   searchTree(target) {
-    // the search checks the root value to see if it matches.
-    if (target === this.value) {
-      return this.value
-    }
 
-    return "not found"
   }
 }
 
@@ -56,6 +51,7 @@ t.insert(6)
 t.insert(0)
 t.insert(1000)
 // console.log('the whole tree', t)
-console.log("search result: ", t.searchTree(10))
-console.log("search result: ", t.searchTree(100))
-
+console.log(t.searchTree(10))
+console.log(t.searchTree(t, 11))
+console.log(t.searchTree(t, 9))
+console.log(t.searchTree(t, 999))
