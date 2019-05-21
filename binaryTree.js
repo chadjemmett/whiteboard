@@ -32,23 +32,28 @@ class Tree {
 
   searchTree(target) {
     // if the target is equal to the value then we've found it
+    // what about null?
     if (target === this.value) {
-      return `found it: ${this.value}`
-    }
-    else if (target < this.value && this.left !== null) {
-      return `Left child: ${this.left.value}`
-
+      return `found it ${this.value}`
     }
 
-    else if (target < this.value && this.right !== null) {
-      return `Right child: ${this.right.value}`
-
+    else if (target < this.value) {
+      if (this.left !== null) {
+        return this.left.searchTree(target)
+        // return `found the left one ${this.left.value}`
+      } else {
+        return `Not here on the left`
+      }
     }
-    else {
-      return `not found ${target}`
+    else if (target > this.value) {
+      if (this.right !== null) {
+        return this.right.searchTree(target)
+        // return `found the right one ${this.right.value}`
+      } 
+      // else {
+      //   return `Not here on the right`
+      // }
     }
-
-
   }
 }
 
@@ -72,3 +77,4 @@ console.log(t.searchTree(10))
 console.log(t.searchTree(11))
 console.log(t.searchTree(9))
 console.log(t.searchTree(999))
+console.log(t.searchTree(1000))
