@@ -49,16 +49,21 @@ class Tree {
       if (this.right !== null) {
         return this.right.searchTree(target)
         // return `found the right one ${this.right.value}`
-      } 
-      // else {
-      //   return `Not here on the right`
-      // }
+      } else {
+        return 'Not here on the right'
+      }
     }
   }
+
 }
 
 
-const t = new Tree(10)
+const t = new Tree(Math.floor(Math.random() * 50));
+  for(let i= 0; i<10; i++ ) {
+    t.insert(Math.floor(Math.random() * 100))
+  }
+
+
 t.insert(1)
 t.insert(4)
 t.insert(5)
@@ -78,3 +83,4 @@ console.log(t.searchTree(11))
 console.log(t.searchTree(9))
 console.log(t.searchTree(999))
 console.log(t.searchTree(1000))
+t.printTree()
