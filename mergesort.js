@@ -21,9 +21,6 @@ const array = [ 3, 5, 1, 9, 4  ]
 
 // [3][5][1][9][4]
 //
-const mergeSort = (left, right) => {
-  return [left, right]
-}
 
 const splitSet = (arr) => {
   if(arr.length === 1) {
@@ -40,7 +37,6 @@ const splitSet = (arr) => {
       // then do that again for second only starting adt the middle and going to the end.
       let firstHalf = arr.slice(0, middle) 
       let secondHalf = arr.slice(middle) 
-      
         // for (let i = 0; i< middle; i++) {
         //   firstHalf.push(arr[i])
         // }
@@ -48,12 +44,20 @@ const splitSet = (arr) => {
         // for (let i = middle; i < arr.length ; i++) {
         //   secondHalf.push(arr[i])
         // }
-   return [splitSet(firstHalf), splitSet(secondHalf)]
+   return splitSet(firstHalf)
    // return mergeSort(splitSet(firstHalf), splitSet(secondHalf))
 
   }
 
 }
+
+
+compare the left and right.
+check to see if the left and right are the same.
+if the last element in the left array is larger than the first element in the right array. Merge them. Merge right + left 
+if the last element in the left array is smaller than the first element in the right array. Merge them Merge them left + right.
+because those two arrays will already be sorted.
+do this until there
 
 const splitArray = splitSet(array)
 const newOne = []
