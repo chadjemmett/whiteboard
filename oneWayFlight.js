@@ -13,10 +13,13 @@ const tickets = [
 
 // search and find the one with null as the first index.
 // Then we take the next element in that array.
-// if it's null then we know we've reached the end.
+// we check to see if index 2 is null.
+// if it's null then we know we've found the end.
 // if it's not null then we add it to the return array.
 // then we search the list again. Looking for the next element in the array as the first element in the other arrays.
 // As log as it's not null, we keep going.
+// 
+// 
 
 
 const reconstructTrip = (arr) => {
@@ -25,6 +28,5 @@ const reconstructTrip = (arr) => {
 }
 
 console.log(reconstructTrip(tickets))
-
 
 
