@@ -1,4 +1,4 @@
-class makeBoard {
+class MakeBoard {
   constructor(sizeN) {
     this.board = []
       for(let i = 0; i < sizeN; i++) {
@@ -7,6 +7,8 @@ class makeBoard {
             this.board[i].push(false)
           }
       }
+    this.board[sizeN - 1][sizeN - 1] = "E"
+    this.board[0][0] = "S"
   }
 
   toggle(y, x) {
@@ -16,21 +18,29 @@ class makeBoard {
   hasBeenVisited(y, x) {
     return this.board[y][x]
   }
+
 }
 
 
 class Robot {
   constructor(size) {
     this.stack = []
+    this.path = []
     this.paths = []
-    this.board = new makeBoard(size)
+    this.board = new MakeBoard(size)
+    this.x = 0
+    this.y = 0
   }
 
 
+  search() {
 
+  }
 }
 
+const r = new Robot(3)
 
+r.search()
 
 
 // function makeBoard(n) {
@@ -54,12 +64,12 @@ class Robot {
 
 // store visited squares in a hash
 //
-const b = new makeBoard(3)
-  b.toggle(1, 2)
-console.log(b.hasBeenVisited(1, 2)) // 1. the robot goes through an iteration.
-  b.toggle(1, 2)
-console.log(b.hasBeenVisited(1, 2)) // 1. the robot goes through an iteration.
-console.log(b.board)
+// const b = new MakeBoard(3)
+//   b.toggle(1, 2)
+// console.log(b.hasBeenVisited(1, 2)) // 1. the robot goes through an iteration.
+//   b.toggle(1, 2)
+// console.log(b.hasBeenVisited(1, 2)) // 1. the robot goes through an iteration.
+// console.log(b.board)
 // 2. That iteeration goes in an array or something.
 // 3. Clear the board after the iteration.
 // 4. The robot does another iteration. It checks to see if the iteration is in the array or something.
