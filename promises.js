@@ -5,18 +5,21 @@
 // helps undestand the call stack.
 //
 let thing = new Promise((resolve, reject) => {
-  console.log('initial')
+  console.log('initial thing promise')
     setTimeout(()=> {
       resolve();
-      console.log("promise filled")}, 2000)})
+      console.log(" from teh thing promise filled")}, 2000)})
 
 
 
-async function newThing() {
+ async const newThing = () => {
   console.log('new thing initial')
     setTimeout(() => {
       console.log("new thing promise filled")
     }, 2000)
+}
+
+async function newThing() {
 }
 
 newThing()
