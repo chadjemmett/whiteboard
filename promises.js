@@ -4,28 +4,49 @@
 // promise.race returns things first come first serve.
 // helps undestand the call stack.
 //
-let thing = new Promise((resolve, reject) => {
-  console.log('initial thing promise')
-    setTimeout(()=> {
-      resolve();
-      console.log(" from teh thing promise filled")}, 2000)})
+// let thing = new Promise((resolve, reject) => {
+//   console.log('initial thing promise')
+//     setTimeout(()=> {
+//       resolve();
+//       console.log(" from teh thing promise filled")}, 2000)})
 
 
 
- async const newThing = () => {
-  console.log('new thing initial')
-    setTimeout(() => {
-      console.log("new thing promise filled")
-    }, 2000)
-}
+//  async const newThing = () => {
+//   console.log('new thing initial')
+//     setTimeout(() => {
+//       console.log("new thing promise filled")
+//     }, 2000)
+// }
 
-async function newThing() {
-}
+// async function newThing() {
+// }
 
-newThing()
+// newThing()
 
-  const arrowThing = async () => {
+//   const arrowThing = async () => {
 
-  }
+//   }
 
-arrowThing()
+// arrowThing()
+//
+
+
+new Promise((resolve, reject) => {
+  console.log("initial")
+  resolve()
+
+})
+.then(() => {
+  throw new Error("Something failed")
+  console.log("Do this")
+})
+.catch(()=> {
+  console.log("do that")
+
+})
+.then(() => {
+  console.log("Do this no matter what happens before")
+})
+
+
