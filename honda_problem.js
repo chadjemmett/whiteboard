@@ -1,27 +1,40 @@
 const getCheapestCost = (rootNode) => {
   let currentNode = rootNode
   const visited = []
+  let currentPathCost = 0
   const pathValues = []
-  const stack = [];
+  let stack = [];
   stack.push(rootNode)
-  
+
   while (stack.length > 0) {
-    console.log("The stack", stack)
+    console.log("stack : ", stack)
     if(visited.includes(currentNode) === false) {
       visited.push(currentNode)
     }
 
-    if(currentNode.children.length === 0) {
-      console.log("No children")
-    }
-    else {
+    if (currentNode.children.length > 0) {
       for(let i = 0; i<currentNode.children.length; i++) {
-        stack.push(currentNode.children[i])
+        if(stack.includes(currentNode.children[i]) === false) {
+          stack.push(currentNode.children[i])
+        }
       }
+      currentPathCost += currentNode.cost
+
+    } else {
+      pathValues.push(currentPathCost)
+      currentPathCost = 0
     }
 
 
+
+
+    currentNode = stack.shift()
+    // stack = []
   }
+
+
+  return pathValues
+
   // 0. while the stack is not empty, we do this:
   // 1. check the root node. See if it's in the visited list. If not, add it.
 
@@ -31,7 +44,6 @@ const getCheapestCost = (rootNode) => {
   //   2b. If there are no children. We add the last node to it's current path. Then take the next item from the stack.
   // 4. Take the next item from the stack.
   //
-
 
 }
 
@@ -49,13 +61,14 @@ root.children.push(new Node(1))
 root.children.push(new Node(2))
 // root.children.push(new Node(6))
 // root.children[0].children.push(new Node(4))
-// root.children[1].children.push(new Node(2))
-// root.children[1].children.push(new Node(0))
+root.children[1].children.push(new Node(2))
+root.children[1].children.push(new Node(0))
 // root.children[2].children.push(new Node(1))
 // root.children[2].children.push(new Node(5))
 
+// console.log(root)
 
-getCheapestCost(root)
+console.log("path values array", getCheapestCost(root))
 
 
 
