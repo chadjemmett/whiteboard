@@ -26,8 +26,7 @@ const birthdayCandles = (ar) => {
     prev = ar[i]
 
   }
-  console.log(a, b)
-  return Math.max(b)
+  return b[b.length - 1]
 }
 
 console.log(birthdayCandles(a))
