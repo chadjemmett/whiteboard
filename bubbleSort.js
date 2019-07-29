@@ -2,28 +2,29 @@ const a = [4, 7, 1, 0, 99, 20, 100]
 
 
 const bubbleSort = (arr) => {
-  // let sorting = true 
-  // let pointer = 0
-
-  // while(sorting) {
-  //   if(pointer === arr.length - 1) {
-  //     pointer = 0
-  //     sorting = false
-  //   } else {
-  //     if(arr[pointer] > arr[pointer + 1]) {
-  //       arr[pointer], arr[pointer + 1] = arr[pointer+1], arr[pointer]
-  //       console.log("ponter is bigger so swap", arr[pointer], arr[pointer + 1])
-  //     }
-  //     pointer += 1
-  //   }
-  // }
+  let sorting = true 
+  let pointer = 0
 
 
+  let swapped;
+  do {
+    swapped = false;
+    for(let i = 0; i<arr.length; i++) {
 
+      if(arr[i] > arr[i + 1]) {
+        let tmp = arr[i]
+        arr[i] = arr[i + 1]
+        arr[i + 1] = tmp
+        swapped = true
+      }
+    }
+
+  } while(swapped)
     return arr
   }
 
 
+console.log(bubbleSort(a))
 
 
 
