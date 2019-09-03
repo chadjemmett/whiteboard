@@ -16,7 +16,11 @@ const array1 = [2, 6]
 const array2 = [24, 36]
 
 const getTotalX = (a, b) => {
-  const tempHash = {}
+
+
 
 
 }
+
+
+
