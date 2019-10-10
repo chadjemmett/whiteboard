@@ -1,28 +1,23 @@
-const a = [4, 7, 1, 0, 99, 20, 100]
+const a = [4, 7, 1, 99, 20, 100, 0]
 
 
 const bubbleSort = (arr) => {
-  let sorting = true 
-  let pointer = 0
-
-
-  let swapped;
-  do {
-    swapped = false;
-    for(let i = 0; i<arr.length; i++) {
-
-      if(arr[i] > arr[i + 1]) {
-        let tmp = arr[i]
+  let swapped = true
+  while(swapped) {
+    swapped = false
+    // console.log("sorted array ", arr)
+    console.log(arr)
+    for(let i = 0; i<arr.length - 1; i++) {
+      if(arr[i] > arr[i+1]) {
+        let temp = arr[i]
         arr[i] = arr[i + 1]
-        arr[i + 1] = tmp
+        arr[i + 1] = temp
         swapped = true
       }
     }
-
-  } while(swapped)
-    return arr
   }
-
+  return arr
+}
 
 console.log(bubbleSort(a))
 
