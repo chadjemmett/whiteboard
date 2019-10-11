@@ -2,6 +2,9 @@ const numbers = [4, 3, 8, 2, 5, 0, 1, 9]
 
 
 const selectionSort = () => {
+  // run a for loop.
+  // then run another for loop.:
+
   /*
    * 0. set up a smallest index and the  current index
    *1. store the first index in the array. It's the smallest valeu in the array.
