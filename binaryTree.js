@@ -5,10 +5,13 @@ class Tree {
     this.value = value
     this.left = null
     this.right = null
+    this.size = 0
+    this.storage = []
   }
 
   insert(value) {
     // check the value vs the current value
+    this.size += 1
     if (value < this.value) {
       // if smaller go left
       // If there's nothing there then add it
@@ -28,6 +31,7 @@ class Tree {
         this.right.insert(value)
       }
     }
+
   }
 
   searchTree(target) {
@@ -55,13 +59,83 @@ class Tree {
     }
   }
 
+  numberOfNodes() {
+    let nodeCount = 0
+    const queue = [this] //create a  queue.
+   let currentNode = queue[0]
+
+    while(queue.length > 0) {
+      // console.log("Traversing", queue.length)
+      if(currentNode.left) {
+        queue.push(currentNode.left)
+      }
+      if(currentNode.right) {
+        queue.push(currentNode.right)
+      }
+
+      nodeCount += 1
+      queue.shift()
+      currentNode = queue[0]
+    }
+
+
+
+    return nodeCount 
+
+
+
+  }
+
+  printTree() {
+    // you would need to do a breadth first traverse to print all the nodes
+    const queue = [this] //create a  queue.
+   let currentNode = queue[0]
+
+    while(queue.length > 0) {
+      // console.log("Traversing", queue.length)
+      if(currentNode.left) {
+        queue.push(currentNode.left)
+      }
+      if(currentNode.right) {
+        queue.push(currentNode.right)
+      }
+
+      console.log(currentNode.value)
+      // this.storage.push(currentNode.value)
+      queue.shift()
+      currentNode = queue[0]
+    }
+
+
+
+    return queue
+
+
+
+  }
+
+  dft_print() {
+    const stack = [this]
+    let currentNode = null 
+    while(stack.length > 0) {
+      currentNode = stack.shift()
+      console.log(currentNode.value)
+      if(currentNode.left) {
+        stack.unshift(currentNode.left)
+      }
+      if(currentNode.right) {
+        stack.unshift(currentNode.right)
+      }
+    }
+  }
 }
 
 
-const t = new Tree(Math.floor(Math.random() * 50));
-  for(let i= 0; i<10; i++ ) {
-    t.insert(Math.floor(Math.random() * 100))
-  }
+const t = new Tree(Math.floor(2));
+  // for(let i= 0; i<1000; i++ ) {
+  //   t.insert(Math.floor(Math.random() * 100))
+  // }
+
 
 
 t.insert(1)
@@ -72,15 +146,25 @@ t.insert(11)
 t.insert(9)
 t.insert(99)
 t.insert(98)
+t.insert(17)
+t.insert(22)
+t.insert(32)
 t.insert(3)
 t.insert(7)
 t.insert(6)
 t.insert(0)
 t.insert(1000)
-// console.log('the whole tree', t)
-console.log(t.searchTree(10))
-console.log(t.searchTree(11))
-console.log(t.searchTree(9))
-console.log(t.searchTree(999))
-console.log(t.searchTree(1000))
-t.printTree()
+t.dft_print()
+// t.printTree()
+// console.log("Node count", t.numberOfNodes())
+// console.log("root", t.value)
+// console.log("left", t.left.value)
+// console.log("right", t.right.value)
+// // console.log('the whole tree', t)
+// console.log("size of tree", t.size)
+// console.log(t.searchTree(10), 10)
+// console.log(t.searchTree(11), 11)
+// console.log(t.searchTree(9), 9)
+// console.log(t.searchTree(999), 999)
+// console.log(t.searchTree(1000), 1000)
+// console.log("queue", t.printTree())
