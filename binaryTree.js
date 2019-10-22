@@ -1,22 +1,21 @@
 
+const directions = ["E", "N", "S", "W"]
 
 class Tree {
-  constructor (value) {
+  constructor (value, mommy=null) {
     this.value = value
-    this.left = null
-    this.right = null
-    this.size = 0
-    this.storage = []
+    this[directionOne] = null
+    this[directionTwo]= null
+    this.mommy = mommy
   }
 
   insert(value) {
     // check the value vs the current value
-    this.size += 1
     if (value < this.value) {
       // if smaller go left
       // If there's nothing there then add it
       if (this.left === null) {
-        this.left = new Tree(value)
+        this.left = new Tree(value, this) 
       } else {
         // otherwise recursively insert the value
         // So it goes deeper in the tree
@@ -25,8 +24,8 @@ class Tree {
     } else {
       // if the value is larger it goes right
       // Repeat the same as above.
-      if (this.right == null) {
-        this.right = new Tree(value)
+      if (this.right === null) {
+        this.right = new Tree(value, this)
       } else {
         this.right.insert(value)
       }
@@ -100,7 +99,7 @@ class Tree {
         queue.push(currentNode.right)
       }
 
-      console.log(currentNode.value)
+      console.log(currentNode.mommy)
       // this.storage.push(currentNode.value)
       queue.shift()
       currentNode = queue[0]
@@ -118,8 +117,9 @@ class Tree {
     const stack = [this]
     let currentNode = null 
     while(stack.length > 0) {
+
       currentNode = stack.shift()
-      console.log(currentNode.value)
+        // currentNode.mommy ? console.log("cur node", currentNode.value, "mommy: None") : console.log("cur node", currentNode.value, "mommy", currentNode.mommy)
       if(currentNode.left) {
         stack.unshift(currentNode.left)
       }
@@ -131,7 +131,7 @@ class Tree {
 }
 
 
-const t = new Tree(Math.floor(2));
+const t = new Tree(Math.floor(15));
   // for(let i= 0; i<1000; i++ ) {
   //   t.insert(Math.floor(Math.random() * 100))
   // }
@@ -139,23 +139,25 @@ const t = new Tree(Math.floor(2));
 
 
 t.insert(1)
-t.insert(4)
-t.insert(5)
 t.insert(20)
-t.insert(11)
-t.insert(9)
-t.insert(99)
-t.insert(98)
-t.insert(17)
-t.insert(22)
-t.insert(32)
-t.insert(3)
-t.insert(7)
-t.insert(6)
-t.insert(0)
-t.insert(1000)
-t.dft_print()
+// t.insert(20)
+// t.insert(17)
+// t.insert(11)
+// t.insert(9)
+// t.insert(99)
+// t.insert(98)
+// t.insert(17)
+// t.insert(22)
+// t.insert(32)
+// t.insert(3)
+// t.insert(7)
+// t.insert(6)
+// t.insert(0)
+// t.insert(1000)
+// t.dft_print()
 // t.printTree()
+console.log(t["test"])
+// console.log("value of current node", t.value,  "right mommy", t.right.mommy.value)
 // console.log("Node count", t.numberOfNodes())
 // console.log("root", t.value)
 // console.log("left", t.left.value)
