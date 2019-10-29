@@ -9,7 +9,7 @@ const random = () => {
   let num2 = null
   while( num1 === num2 ) {
     num1 = Math.floor(Math.random() * 4)
-      console.log('Num 1', num1)
+      // console.log('Num 1', num1)
     num2 = Math.floor(Math.random() * 4)
   }
   return [num1, num2]
@@ -109,7 +109,7 @@ const t = new UndirectedTree(50)
 // t.insert(1)
 // t.insert(75)
 // console.log(t.right)
-t.printGraph()
+// t.printGraph()
 // t.navigate()
 let input = process.stdin
 input.setEncoding('utf-8')
@@ -118,7 +118,6 @@ console.log("YOu are at", t.value)
 let currentNode = t
 
 input.on('data', data => {
-
 
     if( data === "r\n" ) {
       if(currentNode.right) {
@@ -145,6 +144,9 @@ input.on('data', data => {
       } else {
         console.log("Dead end. Can't go that way")
       }
+    }
+    if(data === 'q\n') {
+      process.exit()
     }
 
 })
