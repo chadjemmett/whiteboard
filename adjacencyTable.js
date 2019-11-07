@@ -27,7 +27,10 @@ function Graph() {
     }
   }
 
-  this.dftRecursive = (startingNode) => {}
+
+  this.dfs = (startingNode, endNode) => {
+
+  }
 
   this.dft = (startingNode) => {
     if(!this.table.hasOwnProperty(startingNode)) {
@@ -35,7 +38,6 @@ function Graph() {
     }
     const stack = [startingNode]
     const visited = []
-    const longest = []
     let curNode = stack[stack.length - 1]
 
     while(stack.length > 0) {
@@ -119,4 +121,4 @@ g.connect("J", "K")
 
 // console.log(g.bft("G"))
 // console.log(g.bft("A"))
-console.log("DFT", g.dft("A"))
+console.log("DFT", g.dfs("A", "K"))
