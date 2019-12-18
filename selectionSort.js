@@ -1,16 +1,21 @@
-const numbers = [4, 3, 8, 2, 5, 0, 1, 9]
-
-
-const selectionSort = () => {
-  // run a for loop.
-  // then run another for loop.:
-
-  /*
-   * 0. set up a smallest index and the  current index
-   *1. store the first index in the array. It's the smallest valeu in the array.
-   2 . loop through the array, find the index where there is a smaller value. 
-   3. once we are through the array. swap the two indexes 
-   */
-
-
+const numbers = [4, 3, 8, 2, 5, 0]
+const things = [22, 8, 6, 10, 12, 16, 3, 99, 0, 1, 50]
+console.log("Array", numbers)
+const selectionSort = (ar) => {
+  let lowest;
+  for(let i = 0; i<ar.length; i++) {
+    lowest = i;
+    for(let k = i; k<ar.length; k++) {
+      if(ar[lowest] > ar[k]) {
+        lowest = k
+      }
+    }
+      let temp = ar[i]
+      ar[i] = ar[lowest]
+      ar[lowest] = temp
+  }
+  return ar
 }
+
+console.log(selectionSort(numbers))
+console.log(selectionSort(things))

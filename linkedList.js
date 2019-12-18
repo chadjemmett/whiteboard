@@ -51,6 +51,24 @@ class LinkedList {
     return this.length
   }
 
+  insertInto = (value) => {
+    console.log("working")
+    let curNode = this.head
+      while(curNode) {
+        if(curNode.value < value) {
+          let prevNode = curNode
+          let nextNode = curNode.next
+          
+          console.log("prevNode", prevNode, "nextNOde", nextNode)
+        }
+
+        curNode = curNode.next
+      }
+
+
+
+  }
+
 
 
 }
@@ -62,12 +80,13 @@ ll.addToTail(9)
 ll.addToTail(1)
 ll.addToTail(11)
 ll.addToHead(99)
-console.log(ll.removeFromHead().value)
-console.log("Length", ll.length)
+ll.insertInto(12)
+// console.log(ll.removeFromHead().value)
+// console.log("Length", ll.length)
 
   let node = ll.head
   while(node) {
-    console.log(node.value)
+    console.log("traversing list", node.value)
     node =  node.next
   }
 
